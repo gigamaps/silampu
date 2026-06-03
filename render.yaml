@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: silampu-blended
+    env: php
+    buildCommand: "composer install --no-dev && npm install && npm run build"
+    startCommand: "php artisan serve --port=$PORT"
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      - key: DB_CONNECTION
+        value: mysql
